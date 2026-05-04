@@ -4,23 +4,25 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Kira's English | Institute</title>
-    <!-- Google Fonts: Montserrat -->
+    <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&display=swap" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
         :root {
             --primary-red: #D30000;
-            --hover-red: #B20000;
+            --navy-blue: #2c4a63;
+            --dark-bar: #1c1c1c;
             --light-bg: #F8F9FA;
             --white: #ffffff;
             --text-main: #1A1A1A;
             --text-sub: #555555;
             --border-light: #E0E0E0;
+            --tab-orange: #f39c12;
+            --tab-coral: #ff7675;
         }
 
-        * {
-            box-sizing: border-box;
-            -webkit-tap-highlight-color: transparent;
-        }
+        * { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
 
         body {
             background-color: var(--light-bg);
@@ -32,286 +34,302 @@
             overflow-x: hidden;
         }
 
+        /* --- TOP BARS --- */
+        .top-login-bar {
+            background-color: var(--dark-bar);
+            color: white;
+            font-size: 0.75rem;
+            padding: 8px 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .top-login-bar a { color: white; text-decoration: none; }
+
+        .contact-info-bar {
+            background-color: var(--navy-blue);
+            color: white;
+            padding: 12px 5%;
+            font-size: 0.85rem;
+            text-align: center;
+        }
+        .contact-info-bar span { margin: 0 15px; display: inline-block; }
+
         /* --- HEADER --- */
         header {
-            padding: 60px 20px;
+            padding: 50px 20px;
             text-align: center;
             background-color: var(--white);
             border-bottom: 4px solid var(--primary-red);
-            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
         }
-
-        header h1 {
-            font-size: 3rem;
-            font-weight: 900;
-            text-transform: uppercase;
-            margin: 0;
-            letter-spacing: -2px;
-        }
-
-        header h1 span {
-            color: var(--primary-red);
-        }
-
-        .hero-subtitle {
-            font-size: 1.1rem;
-            color: var(--text-sub);
-            margin-top: 15px;
-            max-width: 700px;
-            margin-left: auto;
-            margin-right: auto;
-        }
+        header h1 { font-size: 2.8rem; font-weight: 900; text-transform: uppercase; margin: 0; }
+        header h1 span { color: var(--primary-red); }
 
         /* --- CAROUSEL --- */
         .carousel-container {
-            width: 100%;
-            max-width: 1000px;
-            margin: 40px auto;
+            width: 90%;
+            max-width: 1100px;
+            margin: 30px auto;
             position: relative;
             overflow: hidden;
-            border-radius: 20px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            border-radius: 15px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
         }
-
-        .carousel-track {
-            display: flex;
-            transition: transform 0.5s ease-in-out;
-            width: 300%;
-        }
-
-        .carousel-slide {
-            width: 100%;
-            flex: 1 0 100%;
-        }
-
-        .carousel-slide img {
-            width: 100%;
-            height: 450px;
-            object-fit: cover;
-            display: block;
-        }
-
+        .carousel-track { display: flex; transition: transform 0.5s ease-in-out; width: 300%; }
+        .carousel-slide { width: 100%; flex: 1 0 100%; }
+        .carousel-slide img { width: 100%; height: 450px; object-fit: cover; display: block; }
         .carousel-btn {
             position: absolute;
             top: 50%;
             transform: translateY(-50%);
-            background: rgba(255, 255, 255, 0.8);
+            background: rgba(255, 255, 255, 0.9);
             border: none;
             width: 45px;
             height: 45px;
             border-radius: 50%;
             cursor: pointer;
-            font-size: 1.2rem;
             color: var(--primary-red);
             z-index: 10;
-            transition: 0.3s;
         }
-
-        .carousel-btn:hover { background: var(--primary-red); color: white; }
-        .prev { left: 15px; }
-        .next { right: 15px; }
+        .prev { left: 15px; } .next { right: 15px; }
 
         /* --- MAIN CONTENT --- */
-        .container {
-            max-width: 1000px;
-            margin: 0 auto;
-            padding: 40px 20px;
-        }
-
-        .section-title {
-            display: flex;
-            align-items: center;
-            margin: 50px 0 30px;
-        }
-
-        .section-title h2 {
-            font-size: 1.5rem;
-            text-transform: uppercase;
-            border-left: 5px solid var(--primary-red);
-            padding-left: 15px;
-            margin: 0;
-            color: var(--text-main);
-        }
-
-        .section-title::after {
-            content: "";
-            height: 1px;
-            background: var(--border-light);
-            width: 100%;
-            margin-left: 20px;
-        }
-
-        .resource-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 25px;
-        }
-
+        .container { max-width: 1100px; margin: 0 auto; padding: 40px 20px; }
+        .section-title h2 { font-size: 1.5rem; text-transform: uppercase; border-left: 5px solid var(--primary-red); padding-left: 15px; }
+        
+        .resource-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 25px; margin-top: 30px; }
         .card {
             background-color: var(--white);
             border: 1px solid var(--border-light);
-            border-radius: 16px;
+            border-radius: 12px;
             padding: 35px;
-            text-decoration: none !important;
-            color: var(--text-main) !important;
-            transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            text-align: center;
+            text-decoration: none;
+            color: inherit;
+            transition: 0.3s;
+        }
+        .card:hover { transform: translateY(-5px); border-color: var(--primary-red); }
+        .btn-action { display: inline-block; background: var(--primary-red); color: white; padding: 12px 30px; border-radius: 50px; font-weight: 700; text-transform: uppercase; font-size: 0.8rem; margin-top: 20px; }
+
+        /* --- TABS SECTION (Como en la imagen) --- */
+        .tabs-section {
+            max-width: 1100px;
+            margin: 60px auto;
+            padding: 0 20px;
+        }
+
+        .tabs-header {
             display: flex;
-            flex-direction: column;
-            align-items: center;
-            text-align: center;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.03);
+            gap: 10px;
         }
 
-        .card:hover {
-            transform: translateY(-10px);
-            border-color: var(--primary-red);
-            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
-        }
-
-        .card h3 { margin: 15px 0; text-transform: uppercase; font-size: 1.2rem; }
-        .card p { font-size: 0.95rem; color: var(--text-sub); margin-bottom: 25px; }
-
-        .btn-action {
-            background-color: var(--primary-red);
-            color: white;
-            padding: 12px 30px;
-            border-radius: 50px;
+        .tab-btn {
+            padding: 15px 25px;
+            cursor: pointer;
+            border: none;
+            border-radius: 8px 8px 0 0;
             font-weight: 700;
-            text-transform: uppercase;
             font-size: 0.85rem;
-            letter-spacing: 1px;
+            color: white;
+            transition: 0.3s;
+            text-transform: capitalize;
         }
 
-        /* --- FOOTER --- */
-        footer {
-            background-color: var(--white);
-            border-top: 1px solid var(--border-light);
-            padding: 60px 20px 20px;
-            margin-top: 80px;
+        .tab-btn.active {
+            background-color: #f5f5f5 !important;
+            color: #333;
+            border-top: 4px solid var(--tab-orange);
         }
 
-        .footer-container {
-            max-width: 1000px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 40px;
+        .tab-content {
+            display: none;
+            background: #f5f5f5;
+            padding: 40px;
+            border-radius: 0 12px 12px 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            animation: fadeIn 0.4s ease;
         }
 
-        .footer-section h4 {
-            text-transform: uppercase;
-            font-size: 0.9rem;
-            margin-bottom: 20px;
-            border-bottom: 2px solid var(--primary-red);
-            display: inline-block;
-            padding-bottom: 5px;
+        .tab-content.active { display: flex; gap: 30px; }
+
+        .profile-img-container {
+            flex-shrink: 0;
+            border: 5px solid #84b547;
+            border-radius: 10px;
+            overflow: hidden;
+            width: 150px;
+            height: 180px;
         }
 
-        .footer-links { list-style: none; padding: 0; margin: 0; }
-        .footer-links li { margin-bottom: 12px; }
-        .footer-links a { text-decoration: none; color: var(--text-sub); font-size: 0.85rem; transition: 0.3s; }
-        .footer-links a:hover { color: var(--primary-red); }
-
-        .footer-bottom {
-            max-width: 1000px;
-            margin: 60px auto 0;
-            padding-top: 20px;
-            border-top: 1px solid var(--border-light);
-            text-align: center;
-            font-size: 0.75rem;
-            color: #999;
+        .profile-img-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
         }
 
-        @media (max-width: 600px) {
-            header h1 { font-size: 2.2rem; }
-            .carousel-slide img { height: 250px; }
-            .footer-container { text-align: center; }
+        .profile-text {
+            font-size: 0.95rem;
+            color: #444;
+        }
+
+        .profile-text p { margin-bottom: 15px; }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* --- LSI FOOTER --- */
+        .lsi-footer {
+            background-color: var(--navy-blue);
+            color: #ffffff;
+            padding: 60px 10%;
+        }
+        .footer-logo { max-width: 280px; margin-bottom: 30px; display: block; }
+        .footer-contact-list { list-style: none; padding: 0; margin: 0; }
+        .footer-contact-list li { margin-bottom: 15px; display: flex; align-items: center; color: #d1d8df; }
+        .footer-contact-list i { margin-right: 15px; width: 20px; text-align: center; }
+        .footer-socials { margin-top: 30px; display: flex; gap: 15px; }
+        .social-icon { width: 40px; height: 40px; border: 1px solid rgba(255,255,255,0.3); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; text-decoration: none; transition: 0.3s; }
+
+        /* --- MOBILE --- */
+        @media (max-width: 768px) {
+            .tab-content.active { flex-direction: column; align-items: center; text-align: center; }
+            .tabs-header { flex-direction: column; }
+            .tab-btn { border-radius: 8px; }
+            .carousel-slide img { height: 280px; }
         }
     </style>
 </head>
 <body>
 
+    <div class="top-login-bar">
+        <a href="#">Log In</a>
+        <span>🔍</span>
+    </div>
+
+    <div class="contact-info-bar">
+        <span>Have any questions?</span>
+        <span><i class="fa fa-phone"></i> (1) 2262242604</span>
+        <span><i class="fa fa-envelope"></i> info@languastudents.org</span>
+    </div>
+
     <header>
         <h1>KIRA'S <span>ENGLISH</span></h1>
-        <p class="hero-subtitle">Especialistas en Fonética Norteamericana y Desarrollo de Material Pedagógico bajo el Framework C-V-A.</p>
+        <p style="color: var(--text-sub); margin-top: 10px;">North American Phonetics Specialists | C-V-A Framework</p>
     </header>
 
+    <!-- Carousel -->
     <div class="carousel-container">
         <button class="carousel-btn prev" onclick="moveSlide(-1)">&#10094;</button>
         <button class="carousel-btn next" onclick="moveSlide(1)">&#10095;</button>
         <div class="carousel-track" id="track">
-            <div class="carousel-slide"><img src="https://images.unsplash.com/photo-1577891742292-474818b2830c?auto=format&fit=crop&w=1000&q=80" alt="Slide 1"></div>
-            <div class="carousel-slide"><img src="https://images.unsplash.com/photo-1434030216411-0b793f4b4173?auto=format&fit=crop&w=1000&q=80" alt="Slide 2"></div>
-            <div class="carousel-slide"><img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=1000&q=80" alt="Slide 3"></div>
+            <div class="carousel-slide"><img src="https://images.unsplash.com/photo-1577891742292-474818b2830c?w=1200" alt="Slide 1"></div>
+            <div class="carousel-slide"><img src="https://images.unsplash.com/photo-1434030216411-0b793f4b4173?w=1200" alt="Slide 2"></div>
+            <div class="carousel-slide"><img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=1200" alt="Slide 3"></div>
         </div>
     </div>
 
     <div class="container">
-        <div class="section-title"><h2>Laboratorio de Fonética</h2></div>
+        <div class="section-title"><h2>Phonetics Laboratory</h2></div>
         <div class="resource-grid">
-            <a href="https://pronunciation.kirasenglish.com/" target="_blank" class="card">
-                <h3>12 Fonemas Vocálicos</h3>
-                <p>Domina los sonidos fundamentales del inglés con entrenamiento interactivo.</p>
-                <div class="btn-action">Iniciar</div>
+            <a href="https://pronunciation.kirasenglish.com/" class="card">
+                <h3>12 Vowel Phonemes</h3>
+                <p>Master the core sounds of American English.</p>
+                <div class="btn-action">Start Training</div>
             </a>
-            <a href="https://fonemasvocalicosconflaptd.kirasenglish.com/" target="_blank" class="card">
-                <h3>El Flap T/D</h3>
-                <p>Mejora tu fluidez aplicando el sonido característico de la "T" norteamericana.</p>
-                <div class="btn-action">Ver Ejercicios</div>
-            </a>
-        </div>
-
-        <div class="section-title"><h2>Herramientas Educativas</h2></div>
-        <div class="resource-grid">
-            <a href="https://contrastefonetico.kirasenglish.com/" target="_blank" class="card">
-                <h3>Contraste Fonético</h3>
-                <p>Diferenciación de palabras críticas comúnmente mal pronunciadas.</p>
-                <div class="btn-action">Entrenar</div>
-            </a>
-            <a href="#" class="card" style="opacity: 0.6; cursor: default;">
-                <h3>Idiom Bundles</h3>
-                <p>Próximamente: 1000 modismos organizados por niveles de dificultad.</p>
-                <div class="btn-action" style="background-color: #999;">Pronto</div>
+            <a href="https://fonemasvocalicosconflaptd.kirasenglish.com/" class="card">
+                <h3>The Flap T/D</h3>
+                <p>Improve your flow and sound connections.</p>
+                <div class="btn-action">Practice Now</div>
             </a>
         </div>
     </div>
 
-    <footer>
-        <div class="footer-container">
-            <div class="footer-section">
-                <div style="font-weight: 900; font-size: 1.2rem;">KIRA'S <span style="color:var(--primary-red)">ENGLISH</span></div>
-                <p style="font-size: 0.85rem; color: var(--text-sub); margin-top: 15px;">Formación especializada en pronunciación y fonética.</p>
+    <!-- TABS SECTION -->
+    <section class="tabs-section">
+        <div class="tabs-header">
+            <button class="tab-btn active" style="background-color: var(--tab-orange);" onclick="openTab(event, 'director')">Execute Director</button>
+            <button class="tab-btn" style="background-color: var(--tab-coral);" onclick="openTab(event, 'marketing')">Marketing Manager</button>
+            <button class="tab-btn" style="background-color: var(--tab-coral);" onclick="openTab(event, 'liaison')">French Liaison</button>
+        </div>
+
+        <!-- Director Content -->
+        <div id="director" class="tab-content active">
+            <div class="profile-img-container">
+                <img src="https://via.placeholder.com/150x180" alt="Carlos Saakan">
             </div>
-            <div class="footer-section">
-                <h4>Recursos</h4>
-                <ul class="footer-links">
-                    <li><a href="#">12 Fonemas Vocálicos</a></li>
-                    <li><a href="#">El Flap T/D</a></li>
-                    <li><a href="#">Contraste Fonético</a></li>
-                </ul>
-            </div>
-            <div class="footer-section">
-                <h4>Contacto</h4>
-                <ul class="footer-links">
-                    <li><a href="mailto:info@kirasenglish.com">info@kirasenglish.com</a></li>
-                    <li><a href="#">Comunidad de Estudiantes</a></li>
-                </ul>
+            <div class="profile-text">
+                <p><strong>Carlos Saakan</strong> is a Specialist in Project Management, holding a Master in Education degree, and is an ACE - TESOL Certified English teacher in London, Ontario/Canada.</p>
+                <p>He's highly experienced in coordinating English EFL programs in colleges and universities in Colombia, as well as more than 11 years living in Canada; which makes him being a bilingual and bi-cultural immigrant.</p>
+                <p>Carlos is the builder of Language Students International and co-founder of Language Students Corporation.</p>
             </div>
         </div>
-        <div class="footer-bottom">&copy; 2026 KirasEnglish.com | English Language Educator.</div>
+
+        <!-- Marketing Content -->
+        <div id="marketing" class="tab-content">
+            <div class="profile-img-container">
+                <img src="https://via.placeholder.com/150x180" alt="Marketing">
+            </div>
+            <div class="profile-text">
+                <p>Our Marketing Team is dedicated to bringing quality English education to students worldwide, focusing on digital expansion and community engagement.</p>
+            </div>
+        </div>
+
+        <!-- Liaison Content -->
+        <div id="liaison" class="tab-content">
+            <div class="profile-img-container">
+                <img src="https://via.placeholder.com/150x180" alt="Liaison">
+            </div>
+            <div class="profile-text">
+                <p>Specialized support for our francophone students, ensuring a smooth transition into our English immersion programs.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="lsi-footer">
+        <img src="https://i.ibb.co/L8mYgXQ/lsi-logo.png" alt="LSI Logo" class="footer-logo">
+        <ul class="footer-contact-list">
+            <li><i class="fa fa-phone"></i> (01) 2262242604</li>
+            <li><i class="fa fa-envelope"></i> info@languastudents.org</li>
+            <li><i class="fa fa-envelope"></i> admin@languastudents.org</li>
+        </ul>
+        <div class="footer-socials">
+            <a href="#" class="social-icon"><i class="fab fa-facebook-f"></i></a>
+            <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+            <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
+            <a href="#" class="social-icon"><i class="fab fa-youtube"></i></a>
+        </div>
+        <p style="margin-top: 40px; font-size: 0.8rem; opacity: 0.6;">&copy; 2026 KirasEnglish.com | Language Students International.</p>
     </footer>
 
     <script>
+        // Carousel Script
         let currentIndex = 0;
         const track = document.getElementById('track');
-        const slides = document.querySelectorAll('.carousel-slide');
         function moveSlide(direction) {
+            const slides = document.querySelectorAll('.carousel-slide');
             currentIndex += direction;
             if (currentIndex < 0) currentIndex = slides.length - 1;
             if (currentIndex >= slides.length) currentIndex = 0;
             track.style.transform = `translateX(${currentIndex * -100}%)`;
         }
         setInterval(() => moveSlide(1), 5000);
+
+        // Tabs Script
+        function openTab(evt, tabName) {
+            const tabContents = document.getElementsByClassName("tab-content");
+            for (let i = 0; i < tabContents.length; i++) {
+                tabContents[i].classList.remove("active");
+            }
+            const tabBtns = document.getElementsByClassName("tab-btn");
+            for (let i = 0; i < tabBtns.length; i++) {
+                tabBtns[i].classList.remove("active");
+            }
+            document.getElementById(tabName).classList.add("active");
+            evt.currentTarget.classList.add("active");
+        }
     </script>
 </body>
 </html>
