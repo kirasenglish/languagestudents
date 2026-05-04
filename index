@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kira's English | Institute</title>
+    <!-- Google Fonts: Montserrat -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-red: #D30000;
+            --hover-red: #B20000;
+            --light-bg: #F8F9FA;
+            --white: #ffffff;
+            --text-main: #1A1A1A;
+            --text-sub: #555555;
+            --border-light: #E0E0E0;
+        }
+
+        * {
+            box-sizing: border-box;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        body {
+            background-color: var(--light-bg);
+            color: var(--text-main);
+            font-family: 'Montserrat', sans-serif;
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* --- HEADER --- */
+        header {
+            padding: 60px 20px;
+            text-align: center;
+            background-color: var(--white);
+            border-bottom: 4px solid var(--primary-red);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+        }
+
+        header h1 {
+            font-size: 3rem;
+            font-weight: 900;
+            text-transform: uppercase;
+            margin: 0;
+            letter-spacing: -2px;
+        }
+
+        header h1 span {
+            color: var(--primary-red);
+        }
+
+        .hero-subtitle {
+            font-size: 1.1rem;
+            color: var(--text-sub);
+            margin-top: 15px;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* --- CAROUSEL --- */
+        .carousel-container {
+            width: 100%;
+            max-width: 1000px;
+            margin: 40px auto;
+            position: relative;
+            overflow: hidden;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        .carousel-track {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+            width: 300%;
+        }
+
+        .carousel-slide {
+            width: 100%;
+            flex: 1 0 100%;
+        }
+
+        .carousel-slide img {
+            width: 100%;
+            height: 450px;
+            object-fit: cover;
+            display: block;
+        }
+
+        .carousel-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(255, 255, 255, 0.8);
+            border: none;
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 1.2rem;
+            color: var(--primary-red);
+            z-index: 10;
+            transition: 0.3s;
+        }
+
+        .carousel-btn:hover { background: var(--primary-red); color: white; }
+        .prev { left: 15px; }
+        .next { right: 15px; }
+
+        /* --- MAIN CONTENT --- */
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        .section-title {
+            display: flex;
+            align-items: center;
+            margin: 50px 0 30px;
+        }
+
+        .section-title h2 {
+            font-size: 1.5rem;
+            text-transform: uppercase;
+            border-left: 5px solid var(--primary-red);
+            padding-left: 15px;
+            margin: 0;
+            color: var(--text-main);
+        }
+
+        .section-title::after {
+            content: "";
+            height: 1px;
+            background: var(--border-light);
+            width: 100%;
+            margin-left: 20px;
+        }
+
+        .resource-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+        }
+
+        .card {
+            background-color: var(--white);
+            border: 1px solid var(--border-light);
+            border-radius: 16px;
+            padding: 35px;
+            text-decoration: none !important;
+            color: var(--text-main) !important;
+            transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.03);
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+            border-color: var(--primary-red);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+        }
+
+        .card h3 { margin: 15px 0; text-transform: uppercase; font-size: 1.2rem; }
+        .card p { font-size: 0.95rem; color: var(--text-sub); margin-bottom: 25px; }
+
+        .btn-action {
+            background-color: var(--primary-red);
+            color: white;
+            padding: 12px 30px;
+            border-radius: 50px;
+            font-weight: 700;
+            text-transform: uppercase;
+            font-size: 0.85rem;
+            letter-spacing: 1px;
+        }
+
+        /* --- FOOTER --- */
+        footer {
+            background-color: var(--white);
+            border-top: 1px solid var(--border-light);
+            padding: 60px 20px 20px;
+            margin-top: 80px;
+        }
+
+        .footer-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+        }
+
+        .footer-section h4 {
+            text-transform: uppercase;
+            font-size: 0.9rem;
+            margin-bottom: 20px;
+            border-bottom: 2px solid var(--primary-red);
+            display: inline-block;
+            padding-bottom: 5px;
+        }
+
+        .footer-links { list-style: none; padding: 0; margin: 0; }
+        .footer-links li { margin-bottom: 12px; }
+        .footer-links a { text-decoration: none; color: var(--text-sub); font-size: 0.85rem; transition: 0.3s; }
+        .footer-links a:hover { color: var(--primary-red); }
+
+        .footer-bottom {
+            max-width: 1000px;
+            margin: 60px auto 0;
+            padding-top: 20px;
+            border-top: 1px solid var(--border-light);
+            text-align: center;
+            font-size: 0.75rem;
+            color: #999;
+        }
+
+        @media (max-width: 600px) {
+            header h1 { font-size: 2.2rem; }
+            .carousel-slide img { height: 250px; }
+            .footer-container { text-align: center; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>KIRA'S <span>ENGLISH</span></h1>
+        <p class="hero-subtitle">Especialistas en Fonética Norteamericana y Desarrollo de Material Pedagógico bajo el Framework C-V-A.</p>
+    </header>
+
+    <div class="carousel-container">
+        <button class="carousel-btn prev" onclick="moveSlide(-1)">&#10094;</button>
+        <button class="carousel-btn next" onclick="moveSlide(1)">&#10095;</button>
+        <div class="carousel-track" id="track">
+            <div class="carousel-slide"><img src="https://images.unsplash.com/photo-1577891742292-474818b2830c?auto=format&fit=crop&w=1000&q=80" alt="Slide 1"></div>
+            <div class="carousel-slide"><img src="https://images.unsplash.com/photo-1434030216411-0b793f4b4173?auto=format&fit=crop&w=1000&q=80" alt="Slide 2"></div>
+            <div class="carousel-slide"><img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=1000&q=80" alt="Slide 3"></div>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="section-title"><h2>Laboratorio de Fonética</h2></div>
+        <div class="resource-grid">
+            <a href="https://pronunciation.kirasenglish.com/" target="_blank" class="card">
+                <h3>12 Fonemas Vocálicos</h3>
+                <p>Domina los sonidos fundamentales del inglés con entrenamiento interactivo.</p>
+                <div class="btn-action">Iniciar</div>
+            </a>
+            <a href="https://fonemasvocalicosconflaptd.kirasenglish.com/" target="_blank" class="card">
+                <h3>El Flap T/D</h3>
+                <p>Mejora tu fluidez aplicando el sonido característico de la "T" norteamericana.</p>
+                <div class="btn-action">Ver Ejercicios</div>
+            </a>
+        </div>
+
+        <div class="section-title"><h2>Herramientas Educativas</h2></div>
+        <div class="resource-grid">
+            <a href="https://contrastefonetico.kirasenglish.com/" target="_blank" class="card">
+                <h3>Contraste Fonético</h3>
+                <p>Diferenciación de palabras críticas comúnmente mal pronunciadas.</p>
+                <div class="btn-action">Entrenar</div>
+            </a>
+            <a href="#" class="card" style="opacity: 0.6; cursor: default;">
+                <h3>Idiom Bundles</h3>
+                <p>Próximamente: 1000 modismos organizados por niveles de dificultad.</p>
+                <div class="btn-action" style="background-color: #999;">Pronto</div>
+            </a>
+        </div>
+    </div>
+
+    <footer>
+        <div class="footer-container">
+            <div class="footer-section">
+                <div style="font-weight: 900; font-size: 1.2rem;">KIRA'S <span style="color:var(--primary-red)">ENGLISH</span></div>
+                <p style="font-size: 0.85rem; color: var(--text-sub); margin-top: 15px;">Formación especializada en pronunciación y fonética.</p>
+            </div>
+            <div class="footer-section">
+                <h4>Recursos</h4>
+                <ul class="footer-links">
+                    <li><a href="#">12 Fonemas Vocálicos</a></li>
+                    <li><a href="#">El Flap T/D</a></li>
+                    <li><a href="#">Contraste Fonético</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Contacto</h4>
+                <ul class="footer-links">
+                    <li><a href="mailto:info@kirasenglish.com">info@kirasenglish.com</a></li>
+                    <li><a href="#">Comunidad de Estudiantes</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">&copy; 2026 KirasEnglish.com | English Language Educator.</div>
+    </footer>
+
+    <script>
+        let currentIndex = 0;
+        const track = document.getElementById('track');
+        const slides = document.querySelectorAll('.carousel-slide');
+        function moveSlide(direction) {
+            currentIndex += direction;
+            if (currentIndex < 0) currentIndex = slides.length - 1;
+            if (currentIndex >= slides.length) currentIndex = 0;
+            track.style.transform = `translateX(${currentIndex * -100}%)`;
+        }
+        setInterval(() => moveSlide(1), 5000);
+    </script>
+</body>
+</html>
